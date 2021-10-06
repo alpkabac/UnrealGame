@@ -1,10 +1,14 @@
 const express = require('express');
 const web3 = require('web3');
+require('dotenv').config();
+
 
 const app = express();
 const port = 3000;
 
-const web3Provider = new web3.providers.WebsocketProvider('wss://ropsten.infura.io/ws/v3/47e336dbf9904d9bae9d6706ae6f2b1b');
+let InfuraUrl = process.env.INFURA_URL;
+
+const web3Provider = new web3.providers.WebsocketProvider(InfuraUrl);
 const web3Instance = new web3(web3Provider);
 
 
